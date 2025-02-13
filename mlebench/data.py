@@ -143,6 +143,7 @@ def download_and_prepare_dataset(
     if not keep_raw:
         logger.info(f"Removing the raw data directory for `{competition.id}`...")
         shutil.rmtree(competition.raw_dir)
+        os.remove(zipfile)
 
     assert competition.public_dir.is_dir(), f"Public data directory doesn't exist."
     assert competition.private_dir.is_dir(), f"Private data directory doesn't exist."
