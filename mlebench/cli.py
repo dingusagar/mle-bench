@@ -179,7 +179,31 @@ def main():
                 parser_prepare.error(
                     "One of --lite, --all, --list, or --competition-id must be specified."
                 )
-            competitions = [new_registry.get_competition(args.competition_id)]
+            competition_slugs = [
+                    "aerial-cactus-identification",
+                    # "aptos2019-blindness-detection",
+                    "denoising-dirty-documents",
+                    "detecting-insults-in-social-commentary",
+                    "dog-breed-identification",
+                    "dogs-vs-cats-redux-kernels-edition",
+                    "histopathologic-cancer-detection",
+                    "jigsaw-toxic-comment-classification-challenge",
+                    "leaf-classification",
+                    "mlsp-2013-birds",
+                    "new-york-city-taxi-fare-prediction",
+                    "nomad2018-predict-transparent-conductors",
+                    "plant-pathology-2020-fgvc7",
+                    "random-acts-of-pizza",
+                    # "ranzcr-clip-catheter-line-classification",
+                    # "siim-isic-melanoma-classification",
+                    "spooky-author-identification",
+                    "tabular-playground-series-dec-2021",
+                    "tabular-playground-series-may-2022",
+                    "text-normalization-challenge-english-language",
+                    "text-normalization-challenge-russian-language",
+                    "the-icml-2013-whale-challenge-right-whale-redux"
+                ]
+            competitions = [new_registry.get_competition(competition_id) for competition_id in competition_slugs]
 
         for competition in competitions:
             download_and_prepare_dataset(
